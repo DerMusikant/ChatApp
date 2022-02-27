@@ -1,3 +1,6 @@
+import config from './config'
+
 export const App = () => {
-    return <h1>Hello from TypeScript</h1>
+    let test = config.API
+    return <h1>{test}</h1>
 }
