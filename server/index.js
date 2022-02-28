@@ -9,6 +9,8 @@ const socket = require('./socket').connect
 const router = require('./network/routes')
 const db = require('./database')
 
+const cors = require('cors')
+
 // Good security practice
 require('dotenv').config()
 
@@ -19,6 +21,7 @@ db(process.env.DB_USER, process.env.DB_PASSWORD, process.env.DB_NAME)
 
 //Express variables
 
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 socket(server)
