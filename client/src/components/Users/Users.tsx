@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { UserCard } from './styles'
 import { User } from '../../types'
 
 interface Props {
@@ -11,7 +12,7 @@ const Users: React.FC<Props> = ({ users }) => {
     <div>
       {users.map((user) => {
         return(
-        <h2 key={user._id}> {user.name}: {user._id} </h2>
+        <UserCard key={user._id}> {user.name}: {user._id} </UserCard>
         )
       })}
     </div>

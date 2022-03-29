@@ -11,6 +11,8 @@ const UsersContainer: React.FC<Props> = () => {
   const [error, setError] = React.useState('')
 
   React.useEffect(() => {
+
+    // Calls fetching user function and sets its value on 'users'
     async function getUsersAsync() {
       try {
         const data = await getUsers()
