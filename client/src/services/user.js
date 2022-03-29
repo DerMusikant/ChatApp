@@ -1,14 +1,14 @@
-import config from '../config';
+import config from '../config'
 
-const getUserByName = async (username) => {
+const getUsers = async (username = null) => {
     try {
-        const response = await fetch(`${config.API}/user?name=${username}`)
+        const response = await fetch(`${config.API}/user${ username ? `?name=${username}` : '' }`)
         const data = await response.json()
         return data
       } catch (e) {
         console.error(e)
-        return null;
+        return null
       }
 }
 
-export { getUserByName }
+export { getUsers }

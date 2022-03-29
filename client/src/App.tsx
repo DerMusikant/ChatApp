@@ -1,3 +1,5 @@
+import Users from './components/Users/UsersContainer'
+
 export const App = () => {
-    return <div>Hello there</div>
+    return <Users />
 }
