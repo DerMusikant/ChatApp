@@ -10,9 +10,9 @@ controller = require('./controller')
 
 //Actual code
 
-//Posts an user on the database (body.name is needed on request)
+//Posts an user on the database (body.name/description/twitter is needed on request)
 router.post('/', (req, res) => {
-    controller.addUser(req.body.name)
+    controller.addUser(req.body.name, req.body.description, req.body.twitter)
     .then((data) => {
       response.success(req,res, data)
     })
