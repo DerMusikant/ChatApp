@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { UserCard } from './styles'
+import Card from 'react-bootstrap/Card'
 import { User } from '../../types/UserTypes'
 
 interface Props {
@@ -12,7 +12,15 @@ const Users: React.FC<Props> = ({ users }) => {
     <div>
       {users.map((user) => {
         return(
-        <UserCard key={user._id}> {user.name}: {user._id} </UserCard>
+        <Card key={user._id} style={{ width: '18rem' }}>
+          <Card.Body>
+            <Card.Text>
+              <p>
+              {user.name}: {user._id}
+              </p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
         )
       })}
     </div>
