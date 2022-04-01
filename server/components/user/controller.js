@@ -14,9 +14,9 @@ const addUser = (name, description, twitter) => {
       twitter
     }
 
-    store.add(info)
 
-    resolve(info)
+
+    resolve(store.add(info))
   })
 }
 

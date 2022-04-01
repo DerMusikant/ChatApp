@@ -2,12 +2,12 @@ import React from 'react'
 
 import { getUsers } from '../../services/user'
 import UserList from './Users'
-import { NavigationItem, User } from '../../types'
+import { NavigationItem, User } from '../../types/UserTypes'
 
 interface Props {}
 
 const UsersContainer: React.FC<Props> = () => {
-  const [users, setUsers] = React.useState([])
+  const [users, setUsers] = React.useState<User[]>([])
   const [error, setError] = React.useState('')
 
   React.useEffect(() => {

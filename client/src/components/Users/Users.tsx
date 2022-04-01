@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { UserCard } from './styles'
-import { User } from '../../types'
+import { User } from '../../types/UserTypes'
 
 interface Props {
   users: Array<User>
