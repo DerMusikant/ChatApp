@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 
 import Users from './components/Users/UsersContainer'
 import { Context } from './Context' 
-import GlobalStyle from './styles/global'
 
 
 import {NotRegistered} from './pages/NotRegistered'
@@ -14,7 +13,6 @@ export const App = () => {
 
     return (
         <>
-        <GlobalStyle />
       <Router>
           <Routes>
             <Route path='/' element={ isAuth ? <Users /> : <NotRegistered />} />
