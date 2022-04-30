@@ -1,0 +1,14 @@
+.users {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center
+}
+
+.card {
+    width: 18rem;
+    margin: 5px;
+}
+
+.pointer {
+    cursor: pointer;
+}
