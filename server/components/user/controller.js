@@ -6,7 +6,7 @@ const addUser = (name, description, twitter) => {
   return new Promise((resolve, reject) => {
     if (!name){
       console.error('User/controller no [name] found')
-      return reject('Data error.')
+      return reject('User controller error.')
     }
     const info = {
       name,

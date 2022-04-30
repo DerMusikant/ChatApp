@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
       response.success(req,res, data)
     })
     .catch((e) => {
-      response.error(req, res, e, 'Message controller error', 400)
+      response.error(req, res, 'Please, make sure to fill all required fields.', e, 400)
     })
 })
 

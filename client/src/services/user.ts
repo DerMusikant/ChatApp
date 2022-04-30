@@ -26,13 +26,12 @@ const postUser = async ( databody: Post):Promise<User | null> => {
       const { error, body } = data
 
       if(error){
-        return null
+        throw error
       }
 
       return body
     } catch (e) {
-      console.error(e)
-      return null
+      throw e
     }
 }
 
