@@ -1,14 +1,23 @@
+.chatapp{
+    text-align: center;
+    margin: 15px 0;
+}
+
 .users {
     display: flex;
     flex-wrap: wrap;
-    text-align: center
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .card {
     width: 18rem;
     margin: 5px;
+    box-shadow: 1px 1px 5px;
 }
 
-.pointer {
-    cursor: pointer;
+.register{
+    margin: 15px auto;
+    text-align: center
 }

@@ -17,7 +17,6 @@ const Provider = ({children}: PropsWithChildren<{}>) => {
     user,
     isAuth,
     activateAuth: (token) => {
-      console.log('token: ', token)
       setUser(token)
       setIsAuth(true)
       window.sessionStorage.setItem('token', token)

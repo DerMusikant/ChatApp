@@ -1,6 +1,8 @@
 import config from '../config'
 import { PostPromise, Post, GetPromise, User } from '../types/UserTypes'
 
+
+
 const getUsers = async ( username?: string):Promise<GetPromise | null> => {
     try {
         const response = await fetch(`${config.API}/user${ username ? `?name=${username}` : '' }`)
