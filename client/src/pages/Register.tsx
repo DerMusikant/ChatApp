@@ -1,8 +1,10 @@
 import { RegisterForm } from '../components/Register/RegisterForm'
 
+import {Activate} from '../types/UserTypes'
 
 
-export const Register: React.FC<{ activate: (token: string) => void }> = ({ activate }) => {
+
+export const Register: React.FC<{ activate: Activate }> = ({ activate }) => {
 
   return (
     <>

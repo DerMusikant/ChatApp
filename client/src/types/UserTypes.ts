@@ -20,7 +20,11 @@ export type PostPromise = {
   error: string;
   body: User
  }
- 
+
+ export type Activate = {
+   (user: User): void
+ }
+
 export enum NavigationItem{
    USERS,
    CHATS

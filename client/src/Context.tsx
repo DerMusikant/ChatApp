@@ -1,28 +1,39 @@
 import { createContext, useState, PropsWithChildren } from 'react'
 
+import {User, Activate} from './types/UserTypes'
+
 interface contextInterface {
-  user: string,
+  user: User,
   isAuth: boolean,
-  activateAuth: (token: string) => void,
+  activateAuth: Activate,
   removeAuth: () => void
 }
 
 export const Context = createContext({} as contextInterface)
 
 const Provider = ({children}: PropsWithChildren<{}>) => {
-  const [isAuth, setIsAuth] = useState(window.sessionStorage.getItem('token') != null)
-  const [user, setUser] = useState('')
+
+  const noUser = {
+    _id: '',
+    name: '',
+    description: '',
+    twitter: ''
+  }
+
+  const [isAuth, setIsAuth] = useState<boolean>(window.sessionStorage.getItem('token') != null)
+  const [user, setUser] = useState<User>(noUser)
 
   const value: contextInterface = {
     user,
     isAuth,
-    activateAuth: (token) => {
-      setUser(token)
+    activateAuth: (loggedUser) => {
+      setUser(loggedUser)
       setIsAuth(true)
-      window.sessionStorage.setItem('token', token)
+      window.sessionStorage.setItem('token', loggedUser._id)
     },
     removeAuth: () => {
-      setIsAuth(false);
+      setUser(noUser)
+      setIsAuth(false)
       window.sessionStorage.removeItem("token")
     }
   }

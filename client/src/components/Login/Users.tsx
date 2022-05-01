@@ -2,11 +2,11 @@ import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import { Button } from 'react-bootstrap'
-import { User } from '../../types/UserTypes'
+import { User, Activate } from '../../types/UserTypes'
 
 interface Props {
   users: Array<User>,
-  activate: (token: string) => void,
+  activate: Activate,
   loading: boolean
 }
 
@@ -51,7 +51,7 @@ const Users: FC<Props> = ({ users, activate, loading }) => {
                     <br />
                     {user.twitter}
                   </Card.Text>
-                  <Button onClick={() => activate(user._id)}>
+                  <Button onClick={() => activate(user)}>
                     Login as {user.name}
                   </Button>
                 </Card.Body>
