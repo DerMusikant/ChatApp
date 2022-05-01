@@ -17,8 +17,6 @@ export const App = () => {
       <Router>
           <Routes>
             <Route path='/' element={ isAuth ? <h2>Main</h2> : <NotRegistered />} />
-            <Route path='/chat/:id' element={ isAuth? <h2>chat</h2> : <NotRegistered />} />
-            <Route path='/user/:id' element={ isAuth? <h2>userProfile</h2> : <NotRegistered />} />
             <Route path='/login' element={isAuth ? <Navigate replace to='/' /> : <NotRegistered />} />
             <Route path='/register' element={isAuth ? <Navigate replace to='/' /> : <Register activate={activateAuth} />} />
           </Routes>
