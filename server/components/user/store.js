@@ -31,7 +31,32 @@ const getUser = filterUser => {
   )
 }
 
+const updateUser = async (id, name, description, twitter) => {
+  const foundUser = await Model.findOne({
+      _id: id
+  })
+
+  if (name) foundUser.name = name
+
+  if (description) foundUser.description = description
+
+  if (twitter) foundUser.twitter = twitter
+
+  const newUser = await foundUser.save()
+
+  return newUser;
+}
+
+
+const deleteUser = (id) => {
+  return Model.deleteOne({
+    _id: id
+  })
+}
+
 module.exports = {
   add: addUser,
-  get: getUser
+  get: getUser,
+  update: updateUser,
+  delete: deleteUser
 }

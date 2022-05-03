@@ -25,8 +25,40 @@ const getUser = (filter) => {
     return store.get(filter)
 }
 
+const updateUser = (id, name, description, twitter) => {
+  return new Promise(async (resolve, reject) => {
+      if (!id || (!name && !description && !twitter) ) {
+          reject('Invalid data');
+          return false;
+      }
+
+      const result = await store.update(id, name, description, twitter);
+
+      resolve(result);
+  })
+}
+
+
+const deleteUser = (id) => {
+  return new Promise((resolve, reject) => {
+    if(!id){
+      reject('Invalid Parameter')
+    }
+
+    store.delete(id)
+    .then(() => {
+      resolve('User deleted succesfully')
+    })
+    .catch((e) => {
+      reject(e)
+    })
+  })
+}
+
 
 module.exports = {
   addUser,
-  getUser
+  getUser,
+  updateUser,
+  deleteUser
 }
