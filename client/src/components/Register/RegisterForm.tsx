@@ -4,9 +4,11 @@ import { Alert, Form, Button } from 'react-bootstrap'
 import { useInputValue } from '../../hooks/useInputValue'
 import { postUser } from '../../services/user'
 
+import { Activate } from '../../types/UserTypes'
 
 
-export const RegisterForm: FC<{ activate: (token: string) => void }> = ({ activate }) => {
+
+export const RegisterForm: FC<{ activate: Activate }> = ({ activate }) => {
 
   const [error, setError] = useState(null)
   const name = useInputValue('')
@@ -22,7 +24,7 @@ export const RegisterForm: FC<{ activate: (token: string) => void }> = ({ activa
     if (!twitter.value) twitter.value='(No twitter)'
 
     postUser({ name: name.value, description: description.value, twitter: twitter.value })
-      .then((data) => data ? activate(data._id) : console.log('Register problem'))
+      .then((data) => data ? activate(data) : console.log('Register problem'))
       .catch((e) => { setError(e) })
   }
   return (

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { Context } from './Context' 
 
 
-import {Register, NotRegistered} from './pages'
+import {Register, NotRegistered, Home} from './pages'
 
 import './Styles.css'
 
@@ -16,7 +16,7 @@ export const App = () => {
         <>
       <Router>
           <Routes>
-            <Route path='/' element={ isAuth ? <h2>Main</h2> : <NotRegistered />} />
+            <Route path='/' element={ isAuth ? <Home user={ user }/> : <NotRegistered />} />
             <Route path='/login' element={isAuth ? <Navigate replace to='/' /> : <NotRegistered />} />
             <Route path='/register' element={isAuth ? <Navigate replace to='/' /> : <Register activate={activateAuth} />} />
           </Routes>
