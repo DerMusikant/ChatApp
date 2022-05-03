@@ -1,3 +1,4 @@
+const { updateChat } = require('./controller')
 const Model = require('./model')
 
 
@@ -27,6 +28,18 @@ const getChats = (filterChat) => {
   )
 }
 
+
+const updateChatName = async (id, name) => {
+  const foundChat = await Model.findOne({
+      _id: id
+  })
+
+  foundChat.name = name;
+
+  const newChat = await foundChat.save();
+  return newChat;
+}
+
 const deleteChat = (id) => {
   return Model.deleteOne({
     _id: id
@@ -36,5 +49,6 @@ const deleteChat = (id) => {
 module.exports = {
   add: addChat,
   get: getChats,
+  update: updateChatName,
   delete: deleteChat
 }

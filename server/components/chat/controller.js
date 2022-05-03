@@ -27,6 +27,20 @@ const getChats = ( filterUser ) => {
 }
 
 
+const updateChat = (id, name) => {
+  return new Promise(async (resolve, reject) => {
+      if (!id || !name) {
+          reject('Invalid data');
+          return false;
+      }
+
+      const result = await store.update(id, name);
+
+      resolve(result);
+  })
+}
+
+
 const deleteChat = (id) => {
   return new Promise((resolve, reject) => {
     if(!id){
@@ -47,5 +61,6 @@ const deleteChat = (id) => {
 module.exports = {
   addChat,
   getChats,
+  updateChat,
   deleteChat
 }
