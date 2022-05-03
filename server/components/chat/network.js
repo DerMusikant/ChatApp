@@ -33,6 +33,19 @@ router.post('/', (req, res) => {
 })
 
 
+//Modifies a chat's name (id is required as a parameter on url)
+router.patch('/:id', (req, res) => {
+  controller.updateChat(req.params.id, req.body.name)
+      .then((data) => {
+          response.success(req, res, data)
+      })
+      .catch(e => {
+          response.error(req, res, 'Internal error', e)
+      })
+})
+
+
+
 
 //Deletes a chat (Id required as a parameter)
 router.delete('/:id', (req, res) => {
