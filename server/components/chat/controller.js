@@ -2,7 +2,7 @@ const store = require('./store')
 
 
 //Stores message on the database with extra info (Date, etc)
-const addChat = (users, name) => {
+const addChat = (users, name, chatPic) => {
   return new Promise((resolve, reject) => {
     if (!users || !name || !Array.isArray(users)){
       console.error('Chat/controller no [users/name] found')
@@ -10,7 +10,8 @@ const addChat = (users, name) => {
     }
     const info = {
       name,
-      users
+      users,
+      chatPic
     }
 
     store.add(info)

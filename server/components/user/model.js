@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const mySchema = new Schema({
     name: String,
     description: String,
-    twitter: String
+    twitter: String,
+    profilePic: String
 },
 {
     versionKey: false //Remueve la llave __v

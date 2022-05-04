@@ -8,6 +8,7 @@ chat = require('../components/chat/network')
 
 
 routes = (server) => {
+  server.use('/public', express.static('public'))
   server.use('/message', message)
   server.use('/user', user),
   server.use('/chat', chat)

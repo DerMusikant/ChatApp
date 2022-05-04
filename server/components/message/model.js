@@ -12,6 +12,7 @@ const mySchema = new Schema({
     ref: 'Chat'
   },
   message: String,
+  pic: String,
   date: Date
 })
 

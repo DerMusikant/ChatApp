@@ -4,7 +4,7 @@ const { socket } = require('../../socket')
 
 
 //Stores message on the database with extra info (Date, etc)
-const addMessage = (user, message, chat) => {
+const addMessage = (user, message, chat, pic) => {
   return new Promise((resolve, reject) => {
     if (!user || !message || !chat){
       console.error('Message/controller no [user/message/chat] found')
@@ -14,6 +14,7 @@ const addMessage = (user, message, chat) => {
       user,
       message,
       chat,
+      pic,
       date : new Date(),
     }
 

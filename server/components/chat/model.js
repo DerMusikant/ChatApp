@@ -7,7 +7,8 @@ const mySchema = new Schema({
     users: [{
             type: Schema.ObjectId,
             ref: 'User'
-    }]
+    }],
+    chatPic: String
 })
 
 const model = mongoose.model('Chat', mySchema)

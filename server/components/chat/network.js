@@ -4,8 +4,15 @@ const
 
 express = require('express'),
 router = express.Router(),
+multer = require('multer'),
 response = require('../../network/response'),
 controller = require('./controller')
+
+//code
+
+const upload = multer({
+  dest: 'public/files/',
+})
 
 
 //Returns an array of chats (Can be filtered by uID on query)
@@ -18,12 +25,19 @@ router.get('/', (req, res) => {
       .catch((e) => {
         response.error(req, res, e, 'Chat getter error')
       })
-    })
+})
 
 
 //Posts a chat on the database (users array and name required on request body)
-router.post('/', (req, res) => {
-    controller.addChat(req.body.users, req.body.name)
+router.post('/',upload.single('file'), (req, res) => {
+
+  let fileUrl = 'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png';
+  if (req.file) {
+    fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination}${req.file.filename}`;
+  }
+
+
+    controller.addChat(req.body.users, req.body.name, fileUrl)
     .then((data) => {
       response.success(req,res, data)
     })

@@ -4,9 +4,34 @@ const
 
 express = require('express'),
 router = express.Router(),
+multer = require('multer'),
 response = require('../../network/response'),
 controller = require('./controller')
 
+
+//Code
+
+const upload = multer({
+  dest: 'public/files/',
+})
+
+
+//Posts a message on the database (user, message and chat are needed on request body)
+router.post('/',upload.single('file'), (req, res) => {
+
+  let fileUrl = '';
+  if (req.file) {
+    fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination}${req.file.filename}`;
+  }
+
+  controller.addMessage(req.body.user, req.body.message, req.body.chat, fileUrl)
+  .then((data) => {
+    response.success(req,res, data)
+  })
+  .catch((e) => {
+    response.error(req, res, e, 'Message controller error', 400)
+  })
+})
 
 //Returns an array of messages (Can be filtered by cID on query)
 router.get('/', (req, res) => {
@@ -18,19 +43,9 @@ router.get('/', (req, res) => {
       .catch((e) => {
         response.error(req, res, 'Internal Error', e)
       })
-    })
-
-
-//Posts a message on the database (user, message and chat are needed on request body)
-router.post('/', (req, res) => {
-    controller.addMessage(req.body.user, req.body.message, req.body.chat)
-    .then((data) => {
-      response.success(req,res, data)
-    })
-    .catch((e) => {
-      response.error(req, res, e, 'Message controller error', 400)
-    })
 })
+
+
 
 
 //Modifies a msg's text (id is required as a parameter on url)

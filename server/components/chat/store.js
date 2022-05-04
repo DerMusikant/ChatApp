@@ -1,4 +1,3 @@
-const { updateChat } = require('./controller')
 const Model = require('./model')
 
 

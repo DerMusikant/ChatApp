@@ -4,15 +4,29 @@ const
 
 express = require('express'),
 router = express.Router(),
+multer = require('multer'),
 response = require('../../network/response'),
 controller = require('./controller')
 
 
 //Actual code
 
-//Posts an user on the database (body.name/description/twitter is needed on request)
-router.post('/', (req, res) => {
-    controller.addUser(req.body.name, req.body.description, req.body.twitter)
+
+const upload = multer({
+  dest: 'public/files/',
+})
+
+
+//Posts an user on the database (body.name/description/twitter is needed on request, file is optional)
+router.post('/',upload.single('file'), (req, res) => {
+
+  //Sets a default profile pic
+  let fileUrl = 'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png';
+  if (req.file) {
+    fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination}${req.file.filename}`;
+  }
+
+    controller.addUser(req.body.name, req.body.description, req.body.twitter, fileUrl)
     .then((data) => {
       response.success(req,res, data)
     })

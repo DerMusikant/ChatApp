@@ -2,7 +2,7 @@ const store = require('./store')
 
 
 //Stores a new user on the database with name
-const addUser = (name, description, twitter) => {
+const addUser = (name, description, twitter, profilePic) => {
   return new Promise((resolve, reject) => {
     if (!name){
       console.error('User/controller no [name] found')
@@ -11,7 +11,8 @@ const addUser = (name, description, twitter) => {
     const info = {
       name,
       description,
-      twitter
+      twitter,
+      profilePic
     }
 
 
