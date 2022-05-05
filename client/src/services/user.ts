@@ -7,7 +7,6 @@ const getUsers = async ( username?: string):Promise<GetPromise | null> => {
     try {
         const response = await fetch(`${config.API}/user${ username ? `?name=${username}` : '' }`)
         const data = await response.json()
-        console.log(data)
         return data
       } catch (e) {
         console.error(e)
@@ -15,16 +14,27 @@ const getUsers = async ( username?: string):Promise<GetPromise | null> => {
       }
 }
 
-const postUser = async ( databody: Post):Promise<User | null> => {
+const postUser = async ( {name, description, twitter, file}: Post):Promise<User | null> => {
   try {
+
+      let formData = new FormData()
+
+      formData.append('name', name)
+
+      formData.append('file', file)
+
+      formData.append('description', description)
+
+      formData.append('twitter', twitter)
+
+
       const response = await fetch(`${config.API}/user`, {
         method: 'POST',
-        body: JSON.stringify(databody),
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        body: formData
     })
       const data = await response.json()
+
+      console.log(data)
 
       const { error, body } = data
 

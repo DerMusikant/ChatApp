@@ -17,6 +17,11 @@
     box-shadow: 1px 1px 5px;
 }
 
+.card-img{
+    width: 80%;
+    margin: 0 auto;
+}
+
 .register{
     margin: 15px auto;
     text-align: center

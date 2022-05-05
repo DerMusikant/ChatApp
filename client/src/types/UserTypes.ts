@@ -2,13 +2,15 @@ export type User = {
     _id: string,
     name: string,
     description: string,
-    twitter: string
+    twitter: string,
+    profilePic: string
   }
 
 export interface Post {
   name: string,
-  description?: string,
-  twitter?: string
+  description: string,
+  twitter: string,
+  file: File
 }
 
 export type GetPromise = {

@@ -31,7 +31,6 @@ export const UsersContainer: React.FC<Props> = (  ) => {
           setError(error)
           return
         }
-
         setLoading(false)
         setUsers(body)
       } catch (e) {
