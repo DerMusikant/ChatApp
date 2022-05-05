@@ -7,6 +7,7 @@ const getUsers = async ( username?: string):Promise<GetPromise | null> => {
     try {
         const response = await fetch(`${config.API}/user${ username ? `?name=${username}` : '' }`)
         const data = await response.json()
+        console.log(data)
         return data
       } catch (e) {
         console.error(e)

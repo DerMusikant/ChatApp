@@ -13,7 +13,7 @@ interface Props {
 const Users: FC<Props> = ({ users, activate, loading }) => {
 
   //To map loading cards (User experience)
-  let loadingUsers = [0,1,2,3,4,5,6,7,8,9]
+  let loadingUsers = [0,1,2,3,4]
 
   return (
     <>
@@ -59,7 +59,7 @@ const Users: FC<Props> = ({ users, activate, loading }) => {
             )
             )
             :
-            //This shows 10 loading cards for user feedback
+            //This shows 5 loading cards for user feedback
             loadingUsers.map((data) => (
               <Card key={data}>
                 <Card.Body>

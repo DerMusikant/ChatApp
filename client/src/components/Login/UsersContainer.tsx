@@ -27,7 +27,8 @@ export const UsersContainer: React.FC<Props> = (  ) => {
         const { error, body } = data
 
         if (error) {
-          setError('Error fetching users')
+          setLoading(false)
+          setError(error)
           return
         }
 
@@ -43,7 +44,7 @@ export const UsersContainer: React.FC<Props> = (  ) => {
 
   return (
     <>
-      {error && <div>{error}</div>}
+      {error && console.log(error)}
       <UserList users={users} activate={activateAuth} loading={loading}/>
     </>
   );
