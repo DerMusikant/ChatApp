@@ -1,6 +1,6 @@
 ## ChatApp
 
-Chat application based on MERN(Mongo, Express, React, Node) stack, implementing Typescript and styled-components for react.
+Chat application based on MERN(Mongo, Express, React, Node) stack, implementing Typescript and Bootstrap for react.
 
 ### Description
 
