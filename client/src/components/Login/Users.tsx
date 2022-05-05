@@ -54,7 +54,7 @@ const Users: FC<Props> = ({ users, activate, loading }) => {
                   <Card.Subtitle>
                     {user.twitter}
                   </Card.Subtitle>
-                  <Button onClick={() => activate(user)}>
+                  <Button className='my-3' onClick={() => activate(user)}>
                     Login as {user.name}
                   </Button>
                 </Card.Body>
