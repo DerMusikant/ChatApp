@@ -67,7 +67,7 @@ router.patch('/:id', (req, res) => {
 //Deletes a user (Id required as a parameter)
 router.delete('/:id', (req, res) => {
 
-if (req.body.destination) fs.unlink(req.body.destination, e => {if (e) console.log(e)})
+if (req.body.file) fs.unlink(req.body.file, e => {if (e) console.log(e)})
 controller.deleteUser(req.params.id)
 .then((data) => {
   response.success(req,res, data)
