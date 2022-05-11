@@ -1,13 +1,11 @@
-import {useContext} from 'react'
-import { Context } from '../Context'
+import { HomeContainer } from '../components/Home/HomeContainer'
 
 export const Home: React.FC = () => {
 
-    const {user} = useContext(Context)
 
     return (
         <>
-
+            <HomeContainer />
         </>
     )
 }
