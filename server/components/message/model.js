@@ -13,6 +13,7 @@ const mySchema = new Schema({
   },
   message: String,
   pic: String,
+  fileDestination: String,
   date: Date
 })
 

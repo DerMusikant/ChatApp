@@ -8,7 +8,8 @@ const mySchema = new Schema({
             type: Schema.ObjectId,
             ref: 'User'
     }],
-    chatPic: String
+    chatPic: String,
+    fileDestination: String
 })
 
 const model = mongoose.model('Chat', mySchema)

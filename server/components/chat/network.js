@@ -5,6 +5,7 @@ const
 express = require('express'),
 router = express.Router(),
 multer = require('multer'),
+fs = require('fs'),
 response = require('../../network/response'),
 controller = require('./controller')
 
@@ -31,13 +32,15 @@ router.get('/', (req, res) => {
 //Posts a chat on the database (users array and name required on request body)
 router.post('/',upload.single('file'), (req, res) => {
 
-  let fileUrl = 'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png';
+  let fileUrl = 'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png'
+  let fileDestination
   if (req.file) {
-    fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination}${req.file.filename}`;
+    fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination}${req.file.filename}`
+    fileDestination = req.file.destination + req.file.filename
   }
 
 
-    controller.addChat(req.body.users, req.body.name, fileUrl)
+    controller.addChat(req.body.users, req.body.name, fileUrl, fileDestination)
     .then((data) => {
       response.success(req,res, data)
     })
@@ -63,6 +66,8 @@ router.patch('/:id', (req, res) => {
 
 //Deletes a chat (Id required as a parameter)
 router.delete('/:id', (req, res) => {
+  console.log(req.body)
+  if (req.body.file) fs.unlink(req.body.file, e => {if (e) console.log(e)})
   controller.deleteChat(req.params.id)
   .then((data) => {
     response.success(req,res, data)

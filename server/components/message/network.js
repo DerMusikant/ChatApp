@@ -5,6 +5,7 @@ const
 express = require('express'),
 router = express.Router(),
 multer = require('multer'),
+fs = require('fs'),
 response = require('../../network/response'),
 controller = require('./controller')
 
@@ -19,12 +20,14 @@ const upload = multer({
 //Posts a message on the database (user, message and chat are needed on request body)
 router.post('/',upload.single('file'), (req, res) => {
 
-  let fileUrl = '';
+  let fileUrl
+  let fileDestination
   if (req.file) {
-    fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination}${req.file.filename}`;
+    fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination}${req.file.filename}`
+    fileDestination = req.file.destination + req.file.filename
   }
 
-  controller.addMessage(req.body.user, req.body.message, req.body.chat, fileUrl)
+  controller.addMessage(req.body.user, req.body.message, req.body.chat, fileUrl, fileDestination)
   .then((data) => {
     response.success(req,res, data)
   })
@@ -59,8 +62,9 @@ router.patch('/:id', (req, res) => {
         })
 })
 
-//Deletes a msg (Id required as a parameter)
+//Deletes a msg (Id required as a parameter and file if a file must be deleted)
 router.delete('/:id', (req, res) => {
+  if (req.body.file) fs.unlink(req.body.file, e => {if (e) console.log(e)})
   controller.deleteMessage(req.params.id)
   .then((data) => {
     response.success(req,res, data)
