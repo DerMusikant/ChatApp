@@ -6,7 +6,7 @@ export const Home: React.FC<{ user: User }> = ({ user }) => {
         <>
 
 
-            <h2>Token: {user._id}</h2>
+            <h2>Pic: {user.fileDestination}</h2>
 
         </>
     )

@@ -6,7 +6,8 @@ const mySchema = new Schema({
     name: String,
     description: String,
     twitter: String,
-    profilePic: String
+    profilePic: String,
+    fileDestination: String
 },
 {
     versionKey: false //Remueve la llave __v

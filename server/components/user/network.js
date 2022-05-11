@@ -4,7 +4,9 @@ const
 
 express = require('express'),
 router = express.Router(),
+path = require('path'),
 multer = require('multer'),
+fs = require('fs'),
 response = require('../../network/response'),
 controller = require('./controller')
 
@@ -16,17 +18,21 @@ const upload = multer({
   dest: 'public/files/',
 })
 
+let defaultPic = 'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png'
+
 
 //Posts an user on the database (body.name/description/twitter is needed on request, file is optional)
 router.post('/',upload.single('file'), (req, res) => {
 
   //Sets a default profile pic
-  let fileUrl = 'https://www.nicepng.com/png/detail/73-730154_open-default-profile-picture-png.png';
+  let fileUrl = defaultPic
+
   if (req.file) {
-    fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination}${req.file.filename}`;
+    fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination + req.file.filename}`
+    fileDestination = req.file.destination + req.file.filename
   }
 
-    controller.addUser(req.body.name, req.body.description, req.body.twitter, fileUrl)
+    controller.addUser(req.body.name, req.body.description, req.body.twitter, fileUrl, fileDestination)
     .then((data) => {
       response.success(req,res, data)
     })
@@ -61,6 +67,8 @@ router.patch('/:id', (req, res) => {
 
 //Deletes a user (Id required as a parameter)
 router.delete('/:id', (req, res) => {
+  console.log(req.body)
+  if (req.body.destination) fs.unlink(req.body.destination, e => {if (e) console.log(e)})
 controller.deleteUser(req.params.id)
 .then((data) => {
   response.success(req,res, data)

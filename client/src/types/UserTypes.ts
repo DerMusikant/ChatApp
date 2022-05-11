@@ -3,7 +3,8 @@ export type User = {
     name: string,
     description: string,
     twitter: string,
-    profilePic: string
+    profilePic: string,
+    fileDestination?: string
   }
 
 export interface Post {
