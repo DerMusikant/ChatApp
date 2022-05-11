@@ -1,12 +1,12 @@
-import { User } from '../types/UserTypes'
+import {useContext} from 'react'
+import { Context } from '../Context'
 
-export const Home: React.FC<{ user: User }> = ({ user }) => {
+export const Home: React.FC = () => {
+
+    const {user} = useContext(Context)
 
     return (
         <>
-
-
-            <h2>Pic: {user.fileDestination}</h2>
 
         </>
     )
