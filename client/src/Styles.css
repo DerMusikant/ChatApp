@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(233 227 217);
+}
+
 .chatapp{
     text-align: center;
     margin: 15px 0;
@@ -13,15 +17,16 @@
 
 .card {
     width: 18rem;
-    margin: 5px;
-    box-shadow: 1px 1px 5px;
+    margin: 5px 2rem;
+    border-radius: 20px;
+    box-shadow: 1px 1px 15px;
 }
 
 .card-img{
     width: 80%;
-    margin: 0 auto;
+    margin: 10px auto;
+    border-radius: 50%;
 }
-
 .register{
     margin: 15px auto;
     text-align: center
