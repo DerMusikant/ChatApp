@@ -10,7 +10,10 @@ export const HomeContainer: React.FC = () => {
 
     return (
         <>
-            <Header user={context.user} logOut={context.removeAuth} />
+            <div style={{width: '30%'}}>
+                <Header user={context.user} logOut={context.removeAuth} />
+            </div>
+            
         </>
     )
 }
