@@ -41,7 +41,13 @@ body{
 }
 
 
+/* HOME */
 
+
+
+.home--left-side{
+    width:30%;
+}
 
 /* HEADER */
 

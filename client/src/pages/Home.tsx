@@ -1,4 +1,4 @@
-import { HomeContainer } from '../components/Home/HomeContainer'
+import { HomeContainer } from '../container/HomeContainer'
 
 export const Home: React.FC = () => {
 

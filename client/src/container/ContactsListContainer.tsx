@@ -1,16 +1,12 @@
 import React, { useContext } from 'react'
 
-import {Context} from '../../Context'
-import { getUsers } from '../../services/user'
-import UserList from './Users'
-import { NavigationItem, User } from '../../types/UserTypes'
+import {Context} from '../Context'
+import { getUsers } from '../services/user'
+import { User } from '../types/UserTypes'
 
 interface Props {}
 
-export const UsersContainer: React.FC<Props> = (  ) => {
-
-  
-  const { activateAuth } = useContext(Context)
+export const ContactsListContainer: React.FC<Props> = (  ) => {
 
   const [users, setUsers] = React.useState<User[]>([])
   const [error, setError] = React.useState('')
@@ -44,7 +40,6 @@ export const UsersContainer: React.FC<Props> = (  ) => {
   return (
     <>
       {error && console.log(error)}
-      <UserList users={users} activate={activateAuth} loading={loading}/>
     </>
   );
 };
