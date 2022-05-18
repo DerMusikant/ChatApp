@@ -1,7 +1,9 @@
 import { User } from '../../types/UserTypes'
-import { useState } from 'react'
-import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
+
+import { Profile } from '../Offcanvas'
+
+import {NewMessageContainer as NewMessage } from '../../container/NewMessageContainer'
 
 type Props = {
     user: User,
@@ -26,25 +28,9 @@ export const Header: React.FC<Props> = ({ user, logOut, handleShowProfile, handl
                 <Button onClick={handleShowContacts}>New Message</Button>
             </div>
 
-            <Offcanvas show={showProfile} onHide={handleCloseProfile}>
-                <Offcanvas.Header closeButton closeVariant='white'>
-                    <Offcanvas.Title>Profile</Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                    <img src={user.profilePic} alt='' />
-                    <Button variant="outline-warning" onClick={logOut}>
-                        Log out
-                    </Button>
-                </Offcanvas.Body>
-            </Offcanvas>
+            <Profile user={user} logOut={logOut} handleCloseProfile={handleCloseProfile} showProfile={showProfile} />
 
-            <Offcanvas show={showContacts} onHide={handleCloseContacts}>
-                <Offcanvas.Header closeButton closeVariant='white'>
-                    <Offcanvas.Title>Select contacts to start a chat with:</Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                </Offcanvas.Body>
-            </Offcanvas>
+            <NewMessage user={user} handleCloseContacts={handleCloseContacts} showContacts={showContacts} />
         </>
     )
 }

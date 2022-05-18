@@ -1,12 +1,17 @@
+:root{
+    --orange-yellow: #f0ead6;
+    --athens-gray: #f0f2f5;
+    --deep-sea: #008069;
+}
+
 html{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: 62.5%;
 }
 
 body{
-    background-color: rgb(233 227 217);
+    background-color: var(--orange-yellow);
 }
 
 .chatapp{
@@ -23,7 +28,7 @@ body{
 }
 
 .card {
-    width: 18rem;
+    width: 20%;
     margin: 5px 2rem;
     border-radius: 20px;
     box-shadow: 1px 1px 15px;
@@ -47,6 +52,9 @@ body{
 
 .home--left-side{
     width:30%;
+    background-color: var(--athens-gray);
+    height: 100vh;
+    border: 1px solid lightgray;
 }
 
 /* HEADER */
@@ -56,7 +64,7 @@ body{
     display: flex;
     align-items: center;
     justify-content:space-between;
-    border: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
     padding: 10px 10px;
 }
 
@@ -70,7 +78,7 @@ body{
 }
 
 .offcanvas-header{
-    background-color: #008069;
+    background-color: var(--deep-sea);
     padding: 30px 10px 10px 10px;
     color: white;
 }
