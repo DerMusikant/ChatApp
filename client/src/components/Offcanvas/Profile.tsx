@@ -20,8 +20,17 @@ export const Profile: React.FC<Props> = ({ user, logOut, handleCloseProfile, sho
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <img src={user.profilePic} alt={`${user.name}'s profile picture`} />
+                    <span>Name: </span>
+                    <p>{user.name}</p>
+                    <span>Description:</span>
+                    <p>{user.description}</p>
+                    <span>Twitter: </span>
+                    <p>{user.twitter}</p>
                     <Button variant="outline-warning" onClick={logOut}>
                         Log out
+                    </Button>
+                    <Button variant="outline-danger">
+                        Delete Account
                     </Button>
                 </Offcanvas.Body>
             </Offcanvas>

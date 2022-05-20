@@ -13,10 +13,11 @@ type Props = {
     handleShowContacts: () => void,
     handleCloseContacts: () => void,
     showProfile: boolean,
-    showContacts: boolean
+    showContacts: boolean,
+    selectChat: (chatInfo: string) => void
 }
 
-export const Header: React.FC<Props> = ({ user, logOut, handleShowProfile, handleCloseProfile, handleShowContacts,handleCloseContacts, showContacts, showProfile }) => {
+export const Header: React.FC<Props> = ({ user, logOut, handleShowProfile, handleCloseProfile, handleShowContacts,handleCloseContacts, showContacts, showProfile, selectChat }) => {
 
 
     return (
@@ -30,7 +31,7 @@ export const Header: React.FC<Props> = ({ user, logOut, handleShowProfile, handl
 
             <Profile user={user} logOut={logOut} handleCloseProfile={handleCloseProfile} showProfile={showProfile} />
 
-            <NewMessage user={user} handleCloseContacts={handleCloseContacts} showContacts={showContacts} />
+            <NewMessage user={user} handleCloseContacts={handleCloseContacts} showContacts={showContacts} selectChat={selectChat}/>
         </>
     )
 }

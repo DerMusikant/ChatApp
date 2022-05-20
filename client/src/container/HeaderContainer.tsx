@@ -3,7 +3,13 @@ import { useState } from 'react'
 
 import { Header } from '../components/Home/Header'
 
-export const HeaderContainer: React.FC<{ user: User, logOut: () => void }> = ({ user, logOut }) => {
+type Props = {
+    user: User,
+    logOut: () => void,
+    selectChat: (chatInfo: string) => void
+}
+
+export const HeaderContainer: React.FC<Props> = ({ user, logOut, selectChat }) => {
 
     const [showProfile, setShowProfile] = useState(false)
     const [showContacts, setShowContacts] = useState(false)
@@ -21,7 +27,7 @@ export const HeaderContainer: React.FC<{ user: User, logOut: () => void }> = ({ 
 
     return (
         <>
-            <Header user={user} logOut={logOut} {...handlers} {...states}/>
+            <Header user={user} logOut={logOut} {...handlers} {...states} selectChat={selectChat}/>
         </>
     )
 }

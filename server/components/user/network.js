@@ -25,6 +25,7 @@ router.post('/',upload.single('file'), (req, res) => {
 
   //Sets a default profile pic
   let fileUrl = defaultPic
+  let fileDestination
 
   if (req.file) {
     fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination + req.file.filename}`

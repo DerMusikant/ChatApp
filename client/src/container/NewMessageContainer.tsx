@@ -8,10 +8,11 @@ import { NewMessage } from '../components/Offcanvas'
 type Props = {
     user: User,
     handleCloseContacts: () => void,
-    showContacts: boolean
+    showContacts: boolean,
+    selectChat: (chatInfo: string) => void
 }
 
-export const NewMessageContainer: React.FC<Props> = ({ user, handleCloseContacts, showContacts }) => {
+export const NewMessageContainer: React.FC<Props> = ({ user, handleCloseContacts, showContacts, selectChat }) => {
 
     const [users, setUsers] = useState<User[]>([])
     const [error, setError] = useState('')
@@ -47,7 +48,7 @@ export const NewMessageContainer: React.FC<Props> = ({ user, handleCloseContacts
 
     return (
         <>
-            <NewMessage users={users} handleCloseContacts={handleCloseContacts} showContacts={showContacts} />
+            <NewMessage users={users} handleCloseContacts={handleCloseContacts} showContacts={showContacts} selectChat={selectChat}/>
         </>
     )
 }

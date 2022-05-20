@@ -8,9 +8,15 @@ export const HomeContainer: React.FC = () => {
     
     const context = useContext(Context)
 
+    const [chat, setChat] = useState('')
+
+    const handleChatSelection = (chatInfo: string) => {
+        setChat(chatInfo)
+    }
+
     return (
         <>
-            <Home user={context.user} logOut={context.removeAuth} />
+            <Home user={context.user} logOut={context.removeAuth} chat={chat} selectChat={handleChatSelection}/>
         </>
     )
 }
