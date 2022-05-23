@@ -35,7 +35,11 @@ body{
 }
 
 .card-img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 80%;
+    aspect-ratio: 1/1;
     margin: 10px auto;
     border-radius: 50%;
 }
@@ -73,6 +77,7 @@ body{
 .header--profile-button{
     width: 50px;
     height: 50px;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
@@ -95,6 +100,18 @@ body{
     align-items: center;
 }
 
+.offcanvas--profile-pic{
+    display: flex;
+    align-items: center;
+    aspect-ratio: 1/1;
+    overflow-y: hidden;
+    border-radius: 50%;
+}
+
+.offcanvas--profile-pic img{
+    width: 100%;
+}
+
 .offcanvas-body span, .offcanvas-body button{
     margin: 1rem 0;
 }
@@ -102,11 +119,6 @@ body{
 .offcanvas-body span{
     color: var(--deep-sea);
     align-self: start;
-}
-
-.offcanvas-body img{
-    border-radius: 50%;
-    width: 50%;
 }
 
 .contact{
@@ -123,8 +135,13 @@ body{
     background-color: var(--athens-gray);
 }
 
-.contact img{
+.contact--profile-pic{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 7rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
 }
 
 .contact div p:first-of-type{

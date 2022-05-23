@@ -17,7 +17,9 @@ export const Contact: React.FC<Props> = ({ user, handleCloseContacts, selectChat
     return (
         <>
             <div className='contact' onClick={() => handleClick(user._id)}>
-                <img src={user.profilePic} alt={`${user.name}'s profile picture`} />
+                <div className='contact--profile-pic' style={{backgroundImage: `url(${user.profilePic})`}}>
+                </div>
+                
                 <div>
                     <p>{user.name}</p>
                     <p>{user.description}</p>

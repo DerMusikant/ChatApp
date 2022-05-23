@@ -19,7 +19,9 @@ export const Profile: React.FC<Props> = ({ user, logOut, handleCloseProfile, sho
                     <Offcanvas.Title>Profile</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <img src={user.profilePic} alt={`${user.name}'s profile picture`} />
+                    <div className='offcanvas--profile-pic'>
+                        <img src={user.profilePic} />
+                    </div>
                     <span>Name: </span>
                     <p>{user.name}</p>
                     <span>Description:</span>

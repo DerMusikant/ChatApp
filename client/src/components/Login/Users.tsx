@@ -43,7 +43,7 @@ const Users: FC<Props> = ({ users, activate, loading }) => {
           //Maps all users on bootstrap cards
             users.map((user) => (
               <Card key={user._id}>
-                <Card.Img src={user.profilePic } />
+                <Card.Img as='div' style={{backgroundImage: `url(${user.profilePic})`}}/>
                 <Card.Body>
                   <Card.Title>
                     {user.name}
