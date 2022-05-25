@@ -1,17 +1,17 @@
 import { User } from '../../types/UserTypes'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import Button from 'react-bootstrap/Button'
+import React from 'react'
 
 type Props = {
     user: User,
+    showProfile: boolean,
     logOut: () => void,
+    deleteAccount: () => void,
     handleCloseProfile: () => void,
-    showProfile: boolean
 }
 
-export const Profile: React.FC<Props> = ({ user, logOut, handleCloseProfile, showProfile }) => {
-
-
+export const Profile: React.FC<Props> = ({ user, logOut, handleCloseProfile, showProfile, deleteAccount }) => {
     return (
         <>
             <Offcanvas show={showProfile} onHide={handleCloseProfile}>
@@ -31,7 +31,7 @@ export const Profile: React.FC<Props> = ({ user, logOut, handleCloseProfile, sho
                     <Button variant="outline-warning" onClick={logOut}>
                         Log out
                     </Button>
-                    <Button variant="outline-danger">
+                    <Button variant="outline-danger" onClick={deleteAccount}>
                         Delete Account
                     </Button>
                 </Offcanvas.Body>

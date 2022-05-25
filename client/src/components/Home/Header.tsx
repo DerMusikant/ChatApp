@@ -1,7 +1,7 @@
 import { User } from '../../types/UserTypes'
 import Button from 'react-bootstrap/Button'
 
-import { Profile } from '../Offcanvas'
+import { ProfileContainer as Profile } from '../../container/ProfileContainer'
 
 import {NewMessageContainer as NewMessage } from '../../container/NewMessageContainer'
 
