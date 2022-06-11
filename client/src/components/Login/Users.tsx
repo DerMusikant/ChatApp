@@ -15,6 +15,7 @@ const Users: FC<Props> = ({ users, activate, loading }) => {
   //To map loading cards (User experience)
   let loadingUsers = [0,1,2,3,4]
 
+
   return (
     <>
 
@@ -54,7 +55,7 @@ const Users: FC<Props> = ({ users, activate, loading }) => {
                   <Card.Subtitle>
                     {user.twitter}
                   </Card.Subtitle>
-                  <Button className='my-3' onClick={() => activate(user)}>
+                  <Button className='my-3' onClick={() => {activate(user)}}>
                     Login as {user.name}
                   </Button>
                 </Card.Body>

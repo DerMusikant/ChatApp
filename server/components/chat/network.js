@@ -39,7 +39,6 @@ router.post('/',upload.single('file'), (req, res) => {
     fileDestination = req.file.destination + req.file.filename
   }
 
-
     controller.addChat(req.body.users, req.body.name, fileUrl, fileDestination)
     .then((data) => {
       response.success(req,res, data)

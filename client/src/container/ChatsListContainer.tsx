@@ -1,21 +1,26 @@
-import React, { useContext } from 'react'
+import { useEffect, useState } from 'react'
+
+import { ChatsList } from '../components/Home/ChatsList'
 
 import { getChatsByUserID as getChats } from '../services/chat'
+
+
 import { Chat } from '../types/ChatTypes'
 
 interface Props {
-    userID: string
+  userID: string,
+  selectChat: (chatInfo: string) => void
 }
 
-export const ChatsListContainer: React.FC<Props> = ( { userID } ) => {
+export const ChatsListContainer: React.FC<Props> = ({ userID, selectChat }) => {
 
-  const [chats, setChats] = React.useState<Chat[]>([])
-  const [error, setError] = React.useState('')
-  const [loading, setLoading] = React.useState(true)  
+  const [chats, setChats] = useState<Chat[]>(null)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(true)
 
-  React.useEffect(() => {
+  useEffect(() => {
 
-    // Calls fetching user function and sets its value on 'users', if not user, sets loading/error
+    // Calls fetching chat function and sets its value on 'chats', if no chat, sets loading/error
     async function getChatsAsync() {
       try {
         const data = await getChats(userID)
@@ -28,19 +33,27 @@ export const ChatsListContainer: React.FC<Props> = ( { userID } ) => {
           setError(error)
           return
         }
-        setLoading(false)
         setChats(body)
+        setLoading(false)
       } catch (e) {
-        setError('Error fetching users')
+        setError('Error fetching chats')
       }
     }
-
     getChatsAsync()
+    document.addEventListener('ChatsPosted', getChatsAsync)
+
+    return () => {
+      document.removeEventListener('ChatsPosted', getChatsAsync)
+    }
+
   }, []);
+
 
   return (
     <>
       {error && console.log(error)}
+      {!loading && chats &&
+        <ChatsList chats={chats} selectChat={selectChat} />}
     </>
   );
 };

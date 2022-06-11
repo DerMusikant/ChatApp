@@ -26,12 +26,10 @@ export const Header: React.FC<Props> = ({ user, logOut, handleShowProfile, handl
             <div className='header'>
                 <div className='header--profile-button' style={{ backgroundImage: `url(${user.profilePic})` }} onClick={handleShowProfile}>
                 </div>
-                <Button onClick={handleShowContacts}>New Message</Button>
             </div>
 
             <Profile user={user} logOut={logOut} handleCloseProfile={handleCloseProfile} showProfile={showProfile} />
 
-            <NewMessage user={user} handleCloseContacts={handleCloseContacts} showContacts={showContacts} selectChat={selectChat}/>
         </>
     )
 }

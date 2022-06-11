@@ -1,6 +1,11 @@
+
 import {User} from '../../types/UserTypes'
 
 import { HeaderContainer as Header } from '../../container/HeaderContainer'
+
+import { ChatsListContainer as ChatsList } from '../../container/ChatsListContainer'
+
+import { Chat } from './Chat'
 
 type Props = {
     user: User,
@@ -16,6 +21,7 @@ const Home: React.FC<Props> = ({user, logOut, chat, selectChat}) => {
         <div className='home'>
             <div className='home--left-side'>
                 <Header user={user} logOut={logOut} selectChat={selectChat}/>
+                <ChatsList userID={user._id} selectChat={selectChat} />
             </div>
             <div>
                 {chat}

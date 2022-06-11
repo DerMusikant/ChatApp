@@ -8,8 +8,7 @@ export type Chat = {
 
 export interface Post {
   name: string,
-  users: Array<string>,
-  file: File
+  users: Array<string>
 }
 
 export type GetPromise = {

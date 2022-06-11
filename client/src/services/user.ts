@@ -34,8 +34,6 @@ const postUser = async ( {name, description, twitter, file}: Post):Promise<User 
     })
       const data = await response.json()
 
-      console.log(data)
-
       const { error, body } = data
 
       if(error){
