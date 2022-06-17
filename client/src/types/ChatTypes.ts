@@ -1,7 +1,16 @@
+type User = {
+  _id: string,
+  name: string,
+  description: string,
+  twitter: string,
+  profilePic: string,
+  fileDestination?: string
+}
+
 export type Chat = {
     _id: string,
     name: string,
-    users: Array<string>,
+    users: Array<User>,
     chatPic: string,
     fileDestination?: string
   }

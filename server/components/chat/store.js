@@ -15,7 +15,7 @@ const getChats = (filterChat) => {
       filter.users =  filterChat
     }
         Model.find(filter)
-        .populate('users', 'name')
+        .populate('users')
         .exec((error, populated) => {
             if (error) {
               reject(error)

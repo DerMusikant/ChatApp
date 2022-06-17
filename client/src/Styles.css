@@ -1,20 +1,20 @@
-:root{
+:root {
     --pearl: #efeae2;
     --athens-gray: #f0f2f5;
     --deep-sea: #008069;
 }
 
-html{
+html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: var(--pearl);
 }
 
-.chatapp{
+.chatapp {
     text-align: center;
     margin: 15px 0;
 }
@@ -34,7 +34,7 @@ body{
     box-shadow: 1px 1px 15px;
 }
 
-.card-img{
+.card-img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -44,7 +44,7 @@ body{
     border-radius: 50%;
 }
 
-.register{
+.register {
     margin: 15px auto;
     text-align: center;
 }
@@ -52,12 +52,12 @@ body{
 
 /* HOME */
 
-.home{
+.home {
     display: grid;
     grid-template-columns: 30% auto;
 }
 
-.home--left-side{
+.home--left-side {
     background-color: var(--athens-gray);
     display: grid;
     grid-template-rows: 10% 90%;
@@ -68,15 +68,15 @@ body{
 /* HEADER */
 
 
-.header{
+.header {
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: space-between;
     border-bottom: 1px solid lightgray;
     padding: 10px 10px;
 }
 
-.header--profile-button{
+.header--profile-button {
     width: 50px;
     height: 50px;
     background-position: center;
@@ -86,24 +86,24 @@ body{
     cursor: pointer;
 }
 
-.offcanvas{
-    width:30%;
+.offcanvas {
+    width: 30%;
 }
 
-.offcanvas-header{
+.offcanvas-header {
     background-color: var(--deep-sea);
     padding: 30px 10px 10px 10px;
     color: white;
 }
 
-.offcanvas-body{
+.offcanvas-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: overlay;
 }
 
-.offcanvas--profile-pic{
+.offcanvas--profile-pic {
     display: flex;
     align-items: center;
     min-height: 127px;
@@ -112,34 +112,34 @@ body{
     border-radius: 50%;
 }
 
-.offcanvas--profile-pic img{
+.offcanvas--profile-pic img {
     width: 100%;
 }
 
-.offcanvas-body span, .offcanvas-body button{
+.offcanvas-body span,
+.offcanvas-body button {
     margin: 1rem 0;
 }
 
-.offcanvas-body span{
+.offcanvas-body span {
     color: var(--deep-sea);
     align-self: start;
 }
 
-.contact{
-    display:flex;
+.contact {
+    display: flex;
     justify-content: start;
     align-items: center;
     height: 7.5rem;
     margin-bottom: 1rem;
-    border-radius: 1.5rem;
     cursor: pointer;
 }
 
-.contact:hover{
-    background-color: var(--athens-gray);
+.contact:hover {
+    background-color: lightgray;
 }
 
-.contact--profile-pic{
+.contact--profile-pic {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -148,11 +148,11 @@ body{
     border-radius: 50%;
 }
 
-.contact div p:first-of-type{
+.contact div p:first-of-type {
     font-weight: bold;
 }
 
-.contact div p{
+.contact div p {
     margin: 0 0 0 1.5rem;
 }
 
@@ -161,6 +161,29 @@ body{
 /* Chats List */
 
 
-.chats-list{
-    overflow-y : scroll;
+.chats-list {
+    overflow-y: auto;
 }
+
+
+/* Chat */
+
+.chat{
+    height:100vh;
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+}
+
+.chat-header{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: var(--athens-gray);
+}
+
+.chat-pic{
+    width: auto;
+    height: 80%;
+    margin: 0 10px;
+}
+

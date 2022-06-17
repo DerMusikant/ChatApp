@@ -53,7 +53,8 @@ export const ChatsListContainer: React.FC<Props> = ({ userID, selectChat }) => {
     <>
       {error && console.log(error)}
       {!loading && chats &&
-        <ChatsList chats={chats} selectChat={selectChat} />}
+        <ChatsList chats={chats} selectChat={selectChat} userID={userID} />
+      }
     </>
   );
 };

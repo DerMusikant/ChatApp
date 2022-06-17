@@ -24,7 +24,7 @@ const Home: React.FC<Props> = ({ user, logOut, chat, selectChat }) => {
                 <ChatsList userID={user._id} selectChat={selectChat} />
             </div>
             <main>
-                < ChatComponent chat={chat} />
+                < ChatComponent chat={chat} user={user} />
             </main>
 
         </div>
