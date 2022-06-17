@@ -2,7 +2,7 @@
 interface Props {
 }
 
-export const ChatsContainer: React.FC<Props> = () => {
+export const ChatContainer: React.FC<Props> = () => {
 
   return (
     <>

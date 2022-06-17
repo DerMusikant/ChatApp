@@ -5,11 +5,10 @@ import { Header } from '../components/Home/Header'
 
 type Props = {
     user: User,
-    logOut: () => void,
-    selectChat: (chatInfo: string) => void
+    logOut: () => void
 }
 
-export const HeaderContainer: React.FC<Props> = ({ user, logOut, selectChat }) => {
+export const HeaderContainer: React.FC<Props> = ({ user, logOut }) => {
 
     const [showProfile, setShowProfile] = useState(false)
     const [showContacts, setShowContacts] = useState(false)
@@ -27,7 +26,7 @@ export const HeaderContainer: React.FC<Props> = ({ user, logOut, selectChat }) =
 
     return (
         <>
-            <Header user={user} logOut={logOut} {...handlers} {...states} selectChat={selectChat}/>
+            <Header user={user} logOut={logOut} {...handlers} {...states} />
         </>
     )
 }

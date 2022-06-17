@@ -1,32 +1,26 @@
 import { User } from '../../types/UserTypes'
-import Button from 'react-bootstrap/Button'
 
 import { ProfileContainer as Profile } from '../../container/ProfileContainer'
-
-import {NewMessageContainer as NewMessage } from '../../container/NewMessageContainer'
 
 type Props = {
     user: User,
     logOut: () => void,
     handleShowProfile: () => void,
     handleCloseProfile: () => void,
-    handleShowContacts: () => void,
-    handleCloseContacts: () => void,
     showProfile: boolean,
-    showContacts: boolean,
-    selectChat: (chatInfo: string) => void
+    showContacts: boolean
 }
 
-export const Header: React.FC<Props> = ({ user, logOut, handleShowProfile, handleCloseProfile, handleShowContacts,handleCloseContacts, showContacts, showProfile, selectChat }) => {
+export const Header: React.FC<Props> = ({ user, logOut, handleShowProfile, handleCloseProfile, showContacts, showProfile }) => {
 
 
     return (
         <>
 
-            <div className='header'>
+            <header className='header'>
                 <div className='header--profile-button' style={{ backgroundImage: `url(${user.profilePic})` }} onClick={handleShowProfile}>
                 </div>
-            </div>
+            </header>
 
             <Profile user={user} logOut={logOut} handleCloseProfile={handleCloseProfile} showProfile={showProfile} />
 

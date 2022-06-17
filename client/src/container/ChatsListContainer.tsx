@@ -9,7 +9,7 @@ import { Chat } from '../types/ChatTypes'
 
 interface Props {
   userID: string,
-  selectChat: (chatInfo: string) => void
+  selectChat: (chatInfo: Chat) => void
 }
 
 export const ChatsListContainer: React.FC<Props> = ({ userID, selectChat }) => {

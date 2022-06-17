@@ -3,14 +3,16 @@ import { Context } from '../Context'
 
 import Home from '../components/Home/Home'
 
+import { Chat } from '../types/ChatTypes'
+
 
 export const HomeContainer: React.FC = () => {
     
     const context = useContext(Context)
 
-    const [chat, setChat] = useState('')
+    const [chat, setChat] = useState<Chat>(null)
 
-    const handleChatSelection = (chatInfo: string) => {
+    const handleChatSelection = (chatInfo: Chat) => {
         setChat(chatInfo)
     }
 

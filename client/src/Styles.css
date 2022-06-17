@@ -59,6 +59,8 @@ body{
 
 .home--left-side{
     background-color: var(--athens-gray);
+    display: grid;
+    grid-template-rows: 10% 90%;
     height: 100vh;
     border: 1px solid lightgray;
 }
@@ -152,4 +154,13 @@ body{
 
 .contact div p{
     margin: 0 0 0 1.5rem;
+}
+
+
+
+/* Chats List */
+
+
+.chats-list{
+    overflow-y : scroll;
 }
