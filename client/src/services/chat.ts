@@ -2,18 +2,6 @@ import config from '../config';
 
 import { Post, Chat, GetPromise } from '../types/ChatTypes'
 
-// const getChatsByUser = async (userId) => {
-//     try {
-//         const response = await fetch(`${config.API}/chat?uID=${userId}`)
-//         const data = await response.json()
-//         return data
-//       } catch (e) {
-//         console.error(e)
-//         return null;
-//       }
-// }
-
-
 const postChat = async ({ name, users }: Post): Promise<Chat | null> => {
   try {
 

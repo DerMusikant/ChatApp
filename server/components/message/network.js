@@ -20,8 +20,8 @@ const upload = multer({
 //Posts a message on the database (user, message and chat are needed on request body)
 router.post('/',upload.single('file'), (req, res) => {
 
-  let fileUrl
-  let fileDestination
+  let fileUrl = ''
+  let fileDestination = ''
   if (req.file) {
     fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination}${req.file.filename}`
     fileDestination = req.file.destination + req.file.filename
@@ -32,7 +32,7 @@ router.post('/',upload.single('file'), (req, res) => {
     response.success(req,res, data)
   })
   .catch((e) => {
-    response.error(req, res, e, 'Message controller error', 400)
+    response.error(req, res, 'Message controller error', e, 400)
   })
 })
 

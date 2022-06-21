@@ -10,6 +10,9 @@ const mySchema = new Schema({
     }],
     chatPic: String,
     fileDestination: String
+},
+{
+    versionKey: false //Remueve la llave __v
 })
 
 const model = mongoose.model('Chat', mySchema)

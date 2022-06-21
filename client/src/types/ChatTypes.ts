@@ -1,19 +1,12 @@
-type User = {
-  _id: string,
-  name: string,
-  description: string,
-  twitter: string,
-  profilePic: string,
-  fileDestination?: string
-}
+import { User } from './UserTypes'
 
 export type Chat = {
-    _id: string,
-    name: string,
-    users: Array<User>,
-    chatPic: string,
-    fileDestination?: string
-  }
+  _id: string,
+  name: string,
+  users: Array<User>,
+  chatPic: string,
+  fileDestination?: string
+}
 
 export interface Post {
   name: string,
@@ -21,11 +14,11 @@ export interface Post {
 }
 
 export type GetPromise = {
-   error: string;
-   body: Array<Chat>
-  }
+  error: string;
+  body: Array<Chat>
+}
 
 export type PostPromise = {
   error: string;
   body: Chat
- }
+}

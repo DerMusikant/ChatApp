@@ -10,15 +10,16 @@ const addMessage = (user, message, chat, pic, fileDestination) => {
       console.error('Message/controller no [user/message/chat] found')
       return reject('Data error.')
     }
+
+
     const info = {
       user,
       message,
       chat,
       pic,
+      fileDestination,
       date : new Date(),
     }
-
-    if (destination) info.fileDestination = fileDestination
 
     store.add(info)
 
