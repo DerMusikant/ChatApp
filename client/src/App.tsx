@@ -10,13 +10,13 @@ import './Styles.css'
 
 export const App = () => {
 
-    const {user, isAuth, activateAuth} = useContext(Context)
+    const {isAuth, activateAuth} = useContext(Context)
 
     return (
         <>
       <Router>
           <Routes>
-            <Route path='/' element={ isAuth ? <Home user={ user }/> : <NotRegistered />} />
+            <Route path='/' element={ isAuth ? <Home /> : <NotRegistered />} />
             <Route path='/login' element={isAuth ? <Navigate replace to='/' /> : <NotRegistered />} />
             <Route path='/register' element={isAuth ? <Navigate replace to='/' /> : <Register activate={activateAuth} />} />
           </Routes>

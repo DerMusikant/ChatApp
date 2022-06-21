@@ -1,4 +1,4 @@
-import { UsersContainer } from '../components/Login/UsersContainer'
+import { UsersContainer } from '../container/UsersContainer'
 
 export const NotRegistered = () => {
 

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 
-import {Context} from '../../Context'
-import { getUsers } from '../../services/user'
-import UserList from './Users'
-import { NavigationItem, User } from '../../types/UserTypes'
+import {Context} from '../Context'
+import { getUsers } from '../services/user'
+import UserList from '../components/Login/Users'
+import { User } from '../types/UserTypes'
 
 interface Props {}
 

@@ -15,6 +15,7 @@ const Users: FC<Props> = ({ users, activate, loading }) => {
   //To map loading cards (User experience)
   let loadingUsers = [0,1,2,3,4]
 
+
   return (
     <>
 
@@ -43,7 +44,7 @@ const Users: FC<Props> = ({ users, activate, loading }) => {
           //Maps all users on bootstrap cards
             users.map((user) => (
               <Card key={user._id}>
-                <img className='card-img' src={user.profilePic } alt='Profile pic' />
+                <Card.Img as='div' style={{backgroundImage: `url(${user.profilePic})`}}/>
                 <Card.Body>
                   <Card.Title>
                     {user.name}
@@ -54,7 +55,7 @@ const Users: FC<Props> = ({ users, activate, loading }) => {
                   <Card.Subtitle>
                     {user.twitter}
                   </Card.Subtitle>
-                  <Button className='my-3' onClick={() => activate(user)}>
+                  <Button className='my-3' onClick={() => {activate(user)}}>
                     Login as {user.name}
                   </Button>
                 </Card.Body>

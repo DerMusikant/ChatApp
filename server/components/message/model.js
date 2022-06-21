@@ -13,7 +13,11 @@ const mySchema = new Schema({
   },
   message: String,
   pic: String,
+  fileDestination: String,
   date: Date
+},
+{
+    versionKey: false //Remueve la llave __v
 })
 
 const model = mongoose.model('Message', mySchema)

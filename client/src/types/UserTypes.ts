@@ -24,6 +24,11 @@ export type PostPromise = {
   body: User
  }
 
+ export type DeleteUser = {
+   error: string,
+   body: string
+ }
+
  export type Activate = {
    (user: User): void
  }

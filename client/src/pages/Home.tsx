@@ -1,13 +1,11 @@
-import { User } from '../types/UserTypes'
+import { HomeContainer } from '../container/HomeContainer'
 
-export const Home: React.FC<{ user: User }> = ({ user }) => {
+export const Home: React.FC = () => {
+
 
     return (
         <>
-
-
-            <h2>Pic: {user.fileDestination}</h2>
-
+            <HomeContainer />
         </>
     )
 }

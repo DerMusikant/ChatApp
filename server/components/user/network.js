@@ -4,7 +4,6 @@ const
 
 express = require('express'),
 router = express.Router(),
-path = require('path'),
 multer = require('multer'),
 fs = require('fs'),
 response = require('../../network/response'),
@@ -26,6 +25,7 @@ router.post('/',upload.single('file'), (req, res) => {
 
   //Sets a default profile pic
   let fileUrl = defaultPic
+  let fileDestination
 
   if (req.file) {
     fileUrl = `${req.protocol}://${req.get('host')}/${req.file.destination + req.file.filename}`
@@ -67,8 +67,8 @@ router.patch('/:id', (req, res) => {
 
 //Deletes a user (Id required as a parameter)
 router.delete('/:id', (req, res) => {
-  console.log(req.body)
-  if (req.body.destination) fs.unlink(req.body.destination, e => {if (e) console.log(e)})
+
+if (req.body.file) fs.unlink(req.body.file, e => {if (e) console.log(e)})
 controller.deleteUser(req.params.id)
 .then((data) => {
   response.success(req,res, data)

@@ -1,4 +1,4 @@
-import { RegisterForm } from '../components/Register/RegisterForm'
+import { RegisterFormContainer as RegisterForm } from '../container/RegisterFormContainer'
 
 import {Activate} from '../types/UserTypes'
 

@@ -8,7 +8,11 @@ const mySchema = new Schema({
             type: Schema.ObjectId,
             ref: 'User'
     }],
-    chatPic: String
+    chatPic: String,
+    fileDestination: String
+},
+{
+    versionKey: false //Remueve la llave __v
 })
 
 const model = mongoose.model('Chat', mySchema)
